@@ -19,12 +19,13 @@ console.log(JSON.stringify({
     }
   },
   "devDependencies": {
-    "smash": "~0.0.8",
+    "benchmark": "*",
+    "browserify": "^16.5.0",
+    "jslint": "*",
     "mocha": "*",
     "should": ">=0.6.3",
-    "jslint": "*",
-    "uglify-js": "*",
-    "benchmark": "*"
+    "smash": "~0.0.8",
+    "uglify-js": "*"
   },
   "license": "MIT",
   "scripts": {
