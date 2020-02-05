@@ -1,6 +1,7 @@
 var later = require('../../index'),
     schedule = later.schedule,
     should = require('should');
+var moment = require('moment');
 
 describe('Schedule', function() {
   later.date.UTC();
@@ -203,4 +204,33 @@ describe('Schedule', function() {
     });
   });
 
+});
+
+
+
+// check for bug: https://github.com/bunkat/later/issues/239
+describe('issue/239', function () {
+
+  it('next() should only has only one element which is very close to NOW', function (done) {
+    // fake time
+    var now = moment();
+    var fakeNow = moment().minute(30).second(0);
+    later.date.localTime();
+
+    console.log(`now = ${now.format('HH:mm:ss')}, fakeNow = ${fakeNow.format('HH:mm:ss')}`);
+
+    var timeStr = fakeNow.format('HH:mm');
+    var text = `at ${timeStr} also every 1 hour`;
+    var s = later.parse.text(text);
+    var next3 = later.schedule(s).next(3, fakeNow.toDate());
+
+    console.log('text: ', text);
+    console.log('next3 : ', next3);
+
+    next3[0].getTime().should.be.aboveOrEqual(fakeNow.valueOf());
+    next3[0].getTime().should.be.below(fakeNow.valueOf() + 1000);
+
+    next3[1].getTime().should.be.aboveOrEqual(fakeNow.valueOf() + 30*60*1000);
+    next3[1].getTime().should.be.below(fakeNow.valueOf() + 30*60*1000 + 1000);
+  });
 });

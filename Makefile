@@ -45,7 +45,7 @@ benchmark: all
 
 later.js: $(shell node_modules/.bin/smash --list src/later.js)
 	@rm -f $@
-	node_modules/.bin/smash src/later.js | node_modules/.bin/browserify - -s later | node_modules/.bin/uglifyjs -b indent_level=2 -o $@
+	node_modules/.bin/smash src/later.js | node_modules/.bin/browserify - --format umd | node_modules/.bin/uglifyjs -b indent_level=2 -o $@
 	@chmod a-w $@
 
 later.min.js: later.js
@@ -54,7 +54,7 @@ later.min.js: later.js
 
 later-core.js: $(shell node_modules/.bin/smash --list src/later-core.js)
 	@rm -f $@
-	node_modules/.bin/smash src/later-core.js | node_modules/.bin/browserify - -s later | node_modules/.bin/uglifyjs -b indent_level=2 -o $@
+	node_modules/.bin/smash src/later-core.js |  node_modules/.bin/browserify - --format umd | node_modules/.bin/uglifyjs -b indent_level=2 -o $@
 	@chmod a-w $@
 
 later-core.min.js: later-core.js

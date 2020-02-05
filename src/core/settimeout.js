@@ -10,7 +10,7 @@
 *     http://github.com/bunkat/later
 */
 
-later.setTimeout = function(fn, sched) {
+later.setTimeout = function (fn, sched) {
 
   var s = later.schedule(sched), t;
   if (fn) {
@@ -24,21 +24,25 @@ later.setTimeout = function(fn, sched) {
   */
   function scheduleTimeout() {
     var now = Date.now(),
-        next = s.next(2, now);
+      next = s.next(2, now);
 
     if (!next[0]) {
       t = undefined;
       return;
     }
 
-    var diff = next[0].getTime() - now;
-
     // minimum time to fire is one second, use next occurrence instead
-    if(diff < 1000) {
-      diff = next[1] ? next[1].getTime() - now : 1000;
+    // fix bug: https://github.com/bunkat/later/issues/239
+    var maxCount = 3;
+    var diff = 0;
+    for (var i = 0; i < maxCount; i++) {
+      next = s.next(Math.max(i + 1, 2), now);
+      diff = next[i] ? next[i].getTime() - now : 1000;
+
+      if (diff >= 1000) break;
     }
 
-    if(diff < 2147483647) {
+    if (diff < 2147483647) {
       t = setTimeout(fn, diff);
     }
     else {
@@ -48,14 +52,14 @@ later.setTimeout = function(fn, sched) {
 
   return {
 
-    isDone: function() {
+    isDone: function () {
       return !t;
     },
 
     /**
     * Clears the timeout.
     */
-    clear: function() {
+    clear: function () {
       clearTimeout(t);
     }
 

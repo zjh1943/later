@@ -23,7 +23,9 @@ console.log(JSON.stringify({
     "browserify": "^16.5.0",
     "jslint": "*",
     "mocha": "*",
+    "moment": "^2.24.0",
     "should": ">=0.6.3",
+    "sinon": "^8.1.1",
     "smash": "~0.0.8",
     "uglify-js": "*"
   },
