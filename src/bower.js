@@ -5,10 +5,10 @@ console.log(JSON.stringify({
   "version": later.version,
   "description": "Determine later (or previous) occurrences of recurring schedules",
   "keywords": ["schedule", "occurrences", "recur", "cron"],
-  "author": "BunKat <bill@levelstory.com>",
+  "author": "Jonathan <jhzhuustc@gmail.com>",
   "repository" : {
     "type" : "git",
-    "url" : "git://github.com/bunkat/later.git"
+    "url" : "git://github.com/zjh1943/later.git"
   },
   "main": "later.js",
   "license": "MIT"
