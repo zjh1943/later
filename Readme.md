@@ -1,8 +1,6 @@
-## Why this?
+## Why this package `Later2` even though there is `Later` ?
 
 The origion author is not working on this great library. I fork his repository and fix some issue.
-
-## This project is no longer being maintained. It should be treated as sample code on one technique to calculate future instances of complex schedules. If you are looking to fire a task every 1 minute, use a cron scheduler instead.
 
 # [Later](http://bunkat.github.io/later/) [![Build Status](https://travis-ci.org/bunkat/later.svg)](https://travis-ci.org/bunkat/later)
 
@@ -21,11 +19,8 @@ Types of schedules supported by _Later_:
 ## Installation
 Using npm:
 
-    $ npm install later
+    $ npm install later2
 
-Using bower:
-
-    $ bower install later
 
 ## Building
 
@@ -58,6 +53,12 @@ For more information on SemVer, please visit [http://semver.org/](http://semver.
 Have a bug or a feature request? [Please open a new issue](https://github.com/bunkat/later/issues).
 
 ## Change Log
+
+### Later v2.0.0
+
+Fixed issues:
+- https://github.com/bunkat/later/issues/239
+- Use browserify to make the later.js an `UMD` js library. After that, we can access the global variable `later` even in Tampermonkey userscript.
 
 ### Later v1.2.0
 * Implemented predefined scheduling definitions for cron
