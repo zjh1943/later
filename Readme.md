@@ -1,3 +1,7 @@
+## Why this?
+
+The origion author is not working on this great library. I fork his repository and fix some issue.
+
 ## This project is no longer being maintained. It should be treated as sample code on one technique to calculate future instances of complex schedules. If you are looking to fire a task every 1 minute, use a cron scheduler instead.
 
 # [Later](http://bunkat.github.io/later/) [![Build Status](https://travis-ci.org/bunkat/later.svg)](https://travis-ci.org/bunkat/later)

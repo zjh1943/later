@@ -1,7 +1,7 @@
 var later = require("../index");
 
 console.log(JSON.stringify({
-  "name": "later",
+  "name": "later2",
   "version": later.version,
   "description": "Determine later (or previous) occurrences of recurring schedules",
   "keywords": ["schedule", "occurrences", "recur", "cron"],
